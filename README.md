@@ -2,7 +2,7 @@
 
 ![Densha de GO!! 復刻版 title screen](images/title-screen.webp)
 
-If you run the arcade Densha de GO!! 復刻版 (the `DGOREPR` reprint of DGO1 and DGO2) without TeknoParrot, you've probably noticed the launcher has sound but the routes are completely silent. This fixes that.
+If you run the arcade 電車でGO! 復刻版 (the `DGOREPR` reprint of DGO1 and DGO2) without TeknoParrot, you've probably noticed the launcher has sound but the routes are completely silent. This fixes that.
 
 The game reads the cabinet's volume knob through the USB I/O board, via `ArrowheadUSBIO.dll`. With no board plugged in, that DLL still reports success and the knob reads as 0, so the old routes play at zero volume. The launcher has its own volume setting, which is why it isn't affected, and TeknoParrot's board emulation sends a real value, which is why the routes work there. Specifically, the knob is the 16-bit value at offset `0x12` of the struct `ArrowheadUSBIOUpdate` fills in, and the game uses it as `value / 65535`, treating anything under 0.01 as muted.
 
