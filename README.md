@@ -12,8 +12,6 @@ It can also mute the virtual arcade's background noise that plays under the rout
 
 I've only tested it on version 5.80.02. Some antivirus programs get suspicious of DLLs like this, so the source is in `src/` (a few hundred lines of C) if you want to check it or build it yourself with `build.bat` and [llvm-mingw](https://github.com/mstorsjo/llvm-mingw). The build is reproducible, so you should get the same file as the release.
 
-Public domain (The Unlicense), see `LICENSE`. Do whatever you like with it.
-
 ## Install
 
 Copy everything from the zip into your `DGOREPR` folder (the one with `DgoRepr.exe`) and run `install.bat`. It renames `TG4AC\Binaries\Win64\dll\ArrowheadUSBIO.dll` to `ArrowheadUSBIO_orig.dll` and puts the fix and `ArrowheadUSBIO_volume.ini` in that folder. You can also do that by hand.
@@ -27,3 +25,5 @@ To uninstall, close the game and run `uninstall.bat`, or delete `ArrowheadUSBIO.
 ---
 
 This fix was made with help from Claude (Anthropic's Claude Opus 5.5 model), which tracked the problem down through the game's files and wrote the DLL. I wouldn't have been able to do it without it.
+
+This is free and unencumbered software released into the public domain ([unlicense.org](https://unlicense.org)). Do whatever you like with it. It's provided as is, without warranty of any kind.
