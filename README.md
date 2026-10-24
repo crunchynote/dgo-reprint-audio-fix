@@ -12,7 +12,7 @@ It can also mute the virtual arcade's background noise that plays under the rout
 
 I've only tested it on version 5.80.02. Some antivirus programs get suspicious of DLLs like this, so the source is in `src/` (a few hundred lines of C) if you want to check it or build it yourself with `build.bat` and [llvm-mingw](https://github.com/mstorsjo/llvm-mingw). The build is reproducible, so you should get the same file as the release.
 
-MIT licensed, see `LICENSE`.
+Public domain (The Unlicense), see `LICENSE`. Do whatever you like with it.
 
 ## Install
 
