@@ -10,7 +10,7 @@ The fix is a small stand-in `ArrowheadUSBIO.dll`. It loads the game's original D
 
 It can also mute the virtual arcade's background noise that plays under the routes, if that gets on your nerves like it did mine. The other machines you hear are recorded into the audio tracks of the arcade videos (`AC1_Left*.usm` and `AC1_Right*.usm`), and the game never sets their volume, so changing `VolumeInGameMovie` does nothing. On top of that, the room ambience is a looping cue, `DGOA_BACKG` (ID `D3` in `legend.acb`). With the option on, the DLL forces the video audio volume to 0 and skips that cue, leaving just the train game's own sounds. It's off by default, and none of this patches anything unless you turn it on. It only touches memory if the game code matches 5.80.02 exactly.
 
-I've only tested it on version 5.80.02 (64-bit Windows). If you try another version, let me know in an issue whether it worked. Some antivirus programs get suspicious of DLLs like this, so the source is in `src/` (a few hundred lines of C) if you want to check it or build it yourself with `build.bat` and [llvm-mingw](https://github.com/mstorsjo/llvm-mingw). The build is reproducible, so you should get the same file as the release.
+I've only tested it on version 5.80.02. Some antivirus programs get suspicious of DLLs like this, so the source is in `src/` (a few hundred lines of C) if you want to check it or build it yourself with `build.bat` and [llvm-mingw](https://github.com/mstorsjo/llvm-mingw). The build is reproducible, so you should get the same file as the release.
 
 MIT licensed, see `LICENSE`.
 
