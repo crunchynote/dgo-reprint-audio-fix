@@ -19,3 +19,7 @@ Copy everything from the zip into your `DGOREPR` folder (the one with `DgoRepr.e
 To change the volume, edit `Percent` (0 to 100) in `TG4AC\Binaries\Win64\dll\ArrowheadUSBIO_volume.ini`. It's read when the game starts, and running `install.bat` again won't overwrite it.
 
 To uninstall, close the game and run `uninstall.bat`, or delete `ArrowheadUSBIO.dll` and `ArrowheadUSBIO_volume.ini` from that folder and rename `ArrowheadUSBIO_orig.dll` back to `ArrowheadUSBIO.dll`.
+
+---
+
+This fix was made with help from Claude (Anthropic's Claude Opus 5.5 model), which tracked the problem down through the game's files and wrote the DLL. I wouldn't have been able to do it without it.
