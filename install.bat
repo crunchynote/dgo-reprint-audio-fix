@@ -33,6 +33,15 @@ if exist "%DLLDIR%\ArrowheadUSBIO_orig.dll" (
 copy /y "%HERE%ArrowheadUSBIO.dll" "%DLLDIR%\ArrowheadUSBIO.dll" >nul || goto :fail
 if not exist "%DLLDIR%\ArrowheadUSBIO_volume.ini" (
     copy /y "%HERE%ArrowheadUSBIO_volume.ini" "%DLLDIR%\ArrowheadUSBIO_volume.ini" >nul
+) else (
+    rem Updating from v1.0: keep the volume setting, add the [Arcade] option if missing
+    findstr /i /c:"[Arcade]" "%DLLDIR%\ArrowheadUSBIO_volume.ini" >nul || (
+        >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo.
+        >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo ; 1 = mute the virtual arcade's background noise during routes
+        >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo ; ^(the other machines and the room ambience^), leaving only the game's own sounds.
+        >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo [Arcade]
+        >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo MuteAmbience=0
+    )
 )
 
 echo.
