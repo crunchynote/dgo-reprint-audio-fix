@@ -27,3 +27,5 @@ To uninstall, close the game and run `uninstall.bat`, or delete `ArrowheadUSBIO.
 ---
 
 This fix was made with help from Claude (Anthropic's Claude Opus 5.5 model), which tracked the problem down through the game's files and wrote the DLL. I wouldn't have been able to do it without it.
+
+This is free and unencumbered software released into the public domain ([unlicense.org](https://unlicense.org)). Do whatever you like with it. It's provided as is, without warranty of any kind.
