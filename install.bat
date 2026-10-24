@@ -34,7 +34,7 @@ copy /y "%HERE%ArrowheadUSBIO.dll" "%DLLDIR%\ArrowheadUSBIO.dll" >nul || goto :f
 if not exist "%DLLDIR%\ArrowheadUSBIO_volume.ini" (
     copy /y "%HERE%ArrowheadUSBIO_volume.ini" "%DLLDIR%\ArrowheadUSBIO_volume.ini" >nul
 ) else (
-    rem Updating from v1.0: keep the volume setting, add the [Arcade] option if missing
+    rem Reinstalling: keep the existing settings, add the [Arcade] option if missing
     findstr /i /c:"[Arcade]" "%DLLDIR%\ArrowheadUSBIO_volume.ini" >nul || (
         >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo.
         >>"%DLLDIR%\ArrowheadUSBIO_volume.ini" echo ; 1 = mute the virtual arcade's background noise during routes

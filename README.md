@@ -20,7 +20,7 @@ Copy everything from the zip into your `DGOREPR` folder (the one with `DgoRepr.e
 
 To change the volume, edit `Percent` (0 to 100) in `TG4AC\Binaries\Win64\dll\ArrowheadUSBIO_volume.ini`. It's read when the game starts, and running `install.bat` again won't overwrite it.
 
-To mute the arcade background noise, set `MuteAmbience=1` under `[Arcade]` in the same file. If you're updating from v1.0, running the new `install.bat` adds that line for you (set to 0).
+To mute the arcade background noise, set `MuteAmbience=1` under `[Arcade]` in the same file.
 
 To uninstall, close the game and run `uninstall.bat`, or delete `ArrowheadUSBIO.dll` and `ArrowheadUSBIO_volume.ini` from that folder and rename `ArrowheadUSBIO_orig.dll` back to `ArrowheadUSBIO.dll`.
 
