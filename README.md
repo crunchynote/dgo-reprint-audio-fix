@@ -1,4 +1,4 @@
-# DGO Reprint Route Audio Fix
+# DGO Reprint - Audio Fix
 
 ![Densha de GO!! 復刻版 title screen](images/title-screen.webp)
 
