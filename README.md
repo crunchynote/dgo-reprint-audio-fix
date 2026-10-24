@@ -2,7 +2,7 @@
 
 ![Densha de GO!! 復刻版 title screen](images/title-screen.webp)
 
-If you run the 電車でGO! 復刻版/Densha de GO! (Reprint Edition) without TeknoParrot, you've probably noticed the launcher has sound but the routes are completely silent. This fixes that.
+If you run 電車でGO! 復刻版/Densha de GO! (Reprint Edition) without TeknoParrot, you've probably noticed the launcher has sound but the routes are completely silent. This fixes that.
 
 **No original game files are provided here.** You need your own copy of the game; this only adds a small DLL of its own next to the game's original one.
 
