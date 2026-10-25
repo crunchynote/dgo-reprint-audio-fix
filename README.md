@@ -1,4 +1,4 @@
-# DdG! Reprint Edition - Audio Fix
+# DdG! Reprint Edition - Audio Fix for at-home use
 
 ![Densha de GO!! 復刻版 title screen](images/title-screen.webp)
 
