@@ -4,15 +4,15 @@
 
 If you run 電車でGO! 復刻版/Densha de GO! (Reprint Edition) without TeknoParrot, you've probably noticed the launcher has sound but the routes are completely silent.
 
-The game reads the cabinet's volume knob through the USB I/O board, via `ArrowheadUSBIO.dll`. With no board plugged in, that DLL still reports success and the knob reads as 0, so the old routes play at zero volume. The launcher has its own volume setting, which is why it isn't affected, and TeknoParrot's board emulation sends a real value, which is why the routes work there. Specifically, the knob is the 16-bit value at offset `0x12` of the struct `ArrowheadUSBIOUpdate` fills in, and the game uses it as `value / 65535`, treating anything under 0.01 as muted.
+The game reads the cabinet's volume knob through the USB I/O board, via `ArrowheadUSBIO.dll`. With no board plugged in, that DLL still reports success and the knob reads as 0, so the routes play at zero volume. The launcher has its own volume setting which is why it isn't affected, and TeknoParrot's board emulation sends a real value, which is why the routes work there. Specifically, the knob is the 16-bit value at offset `0x12` of the struct `ArrowheadUSBIOUpdate` fills in, and the game uses it as `value / 65535` treating anything under 0.01 as muted.
 
 The fix is a small stand-in `ArrowheadUSBIO.dll`. It loads the game's original DLL (renamed to `ArrowheadUSBIO_orig.dll`), passes every call through untouched, and just sets the volume knob after each update.
 
 **No original game files are provided here.** You need your own copy of the game; this only adds a small DLL of its own next to the game's original one.
 
-It can also mute the virtual arcade's background noise that plays under the routes, if that gets on your nerves like it did mine. The other machines you hear are recorded into the audio tracks of the arcade videos (`AC1_Left*.usm` and `AC1_Right*.usm`), and the game never sets their volume, so changing `VolumeInGameMovie` does nothing. On top of that, the room ambience is a looping cue, `DGOA_BACKG` (ID `D3` in `legend.acb`). With the option on, the DLL forces the video audio volume to 0 and skips that cue, leaving just the train game's own sounds. It's off by default, and none of this patches anything unless you turn it on. It only touches memory if the game code matches 5.80.02 exactly.
+It can also mute the virtual arcade's background noise that plays under the routes if that gets on your nerves like it did mine. The other machines you hear are recorded into the audio tracks of the arcade videos (`AC1_Left*.usm` and `AC1_Right*.usm`), and the game never sets their volume, so changing `VolumeInGameMovie` does nothing. On top of that, the room ambience is a looping cue, `DGOA_BACKG` (ID `D3` in `legend.acb`). With the option on, the DLL forces the video audio volume to 0 and skips that cue, leaving just the train game's own sounds. It's off by default, and none of this patches anything unless you turn it on. It only touches memory if the game code matches 5.80.02 exactly.
 
-I've only tested it on version 5.80.02. Some antivirus programs get suspicious of DLLs like this, so the source is in `src/` (a few hundred lines of C) if you want to check it or build it yourself with `build.bat` and [llvm-mingw](https://github.com/mstorsjo/llvm-mingw). The build is reproducible, so you should get the same file as the release.
+I've only tested it on version 5.80.02. Some antivirus programs get suspicious of DLLs like this, so the source is in `src/` (a few hundred lines of C) if you want to check it or build it yourself with `build.bat` and [llvm-mingw](https://github.com/mstorsjo/llvm-mingw). The build is reproducible so you should get the same file as the release.
 
 ## Install
 
